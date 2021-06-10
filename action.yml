@@ -22,8 +22,11 @@ inputs:
   destination_branch_create:
     description: 'Destination branch to create for this commit'
     required: false
+  destination_tag_create:
+    description: 'Destination tag to create for this commit'
+    required: false
   commit_message:
-    description: 'A custom message for the commmit'
+    description: 'A custom message for the commit'
     required: false
 runs:
   using: 'docker'
@@ -35,6 +38,7 @@ runs:
     - ${{ inputs.user-email }}
     - ${{ inputs.destination-branch }}
     - ${{ inputs.destination-branch-create }}
+    - ${{ inputs.destination-tag-create }}
     - ${{ inputs.commit-message }}
 branding:
   icon: 'git-commit'

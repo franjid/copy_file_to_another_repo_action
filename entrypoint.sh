@@ -45,6 +45,13 @@ then
   git commit --message "$INPUT_COMMIT_MESSAGE"
   echo "Pushing git commit"
   git push -u origin HEAD:$OUTPUT_BRANCH
+
+  if [ -z "$INPUT_DESTINATION_TAG_CREATE" ]
+  then
+    git tag $INPUT_DESTINATION_TAG_CREATE
+    git push origin $INPUT_DESTINATION_TAG_CREATE
+  fi
+
 else
   echo "No changes detected"
 fi
