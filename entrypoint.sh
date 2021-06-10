@@ -46,8 +46,9 @@ then
   echo "Pushing git commit"
   git push -u origin HEAD:$OUTPUT_BRANCH
 
-  if [ -z "$INPUT_DESTINATION_TAG_CREATE" ]
+  if [ ! -z "$INPUT_DESTINATION_TAG_CREATE" ]
   then
+    echo "Creating tag"
     git tag $INPUT_DESTINATION_TAG_CREATE
     git push origin $INPUT_DESTINATION_TAG_CREATE
   fi
